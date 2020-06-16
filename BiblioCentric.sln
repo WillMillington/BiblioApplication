@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioCentric", "BiblioCentric\BiblioCentric.csproj", "{84DC1E3B-87E8-47E4-A980-F070060AABE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiblioCentric", "BiblioCentric\BiblioCentric.csproj", "{84DC1E3B-87E8-47E4-A980-F070060AABE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioManager", "BiblioManager\BiblioManager.csproj", "{D74733DA-F51E-42FD-92A8-C3F95AE9ADB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiblioManager", "BiblioManager\BiblioManager.csproj", "{D74733DA-F51E-42FD-92A8-C3F95AE9ADB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiblioWPF", "BiblioWPF\BiblioWPF.csproj", "{7005F266-6F17-41D8-BACC-224667A9B9F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BiblioWPF", "BiblioWPF\BiblioWPF.csproj", "{7005F266-6F17-41D8-BACC-224667A9B9F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B69835E1-6D89-4699-8054-35AB45EBB669}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
