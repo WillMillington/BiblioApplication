@@ -18,7 +18,7 @@ namespace Biblio.Models
         public virtual ICollection<Books> Books { get; set; }
         public override string ToString()
         {
-            return $"{Title} {FirstName} {LastName}";
+            return (Title == null) ? $"{FirstName} {LastName}" : $"{Title} {FirstName} {LastName}";
         }
     }
 }
