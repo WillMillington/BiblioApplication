@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BiblioCentric
+namespace Biblio
 {
     class Program
     {

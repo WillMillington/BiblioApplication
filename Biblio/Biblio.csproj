@@ -14,8 +14,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BiblioCentric\BiblioCentric.csproj" />
-  </ItemGroup>
-
 </Project>

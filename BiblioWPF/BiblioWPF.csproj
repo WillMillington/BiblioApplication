@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BiblioManager\BiblioManager.csproj" />
+    <ProjectReference Include="..\BiblioBusiness\BiblioBusiness.csproj" />
   </ItemGroup>
 
 </Project>
