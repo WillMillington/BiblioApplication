@@ -48,9 +48,9 @@ Project Cards:
 #### Screenshots
 
 Start of Sprint 1 Project board
-![BiblioCentric](./01Start.png)
+![BiblioCentric](./ProjectBoardScreenshots/01Start.png)
 End of Sprint 1 Project board
-![BiblioCentric](./01End.png)
+![BiblioCentric](./ProjectBoardScreenshots/01End.png)
 ***
 
 Sprint 2
@@ -74,7 +74,7 @@ Project Cards:
 #### Screenshots
 
 Start of Sprint 2 Project board
-![BiblioCentric](./02Start.png)
+![BiblioCentric](./ProjectBoardScreenshots/02Start.png)
 End of Sprint 2 Project board
 
 ***
