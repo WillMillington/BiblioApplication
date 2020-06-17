@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,13 +31,19 @@ namespace BiblioWPF
 
         public void PopulateItemsControl()
         {
-            BookBox.ItemsSource = _biblioManager.GetAllBooksByTitle();
+            BookBox.ItemsSource = _biblioManager.GetAllBooksByAdded();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddBook addBookWindow = new AddBook();
+            addBookWindow.DataChanged += addBookWindow_DataChanged;
             addBookWindow.Show();
+        }
+        private void addBookWindow_DataChanged(object sender, EventArgs e)
+        {
+            System.Windows.MessageBox.Show("Book has been added", "Parent");
+            BookBox.;
         }
     }
 }

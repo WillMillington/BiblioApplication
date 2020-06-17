@@ -10,6 +10,8 @@ namespace BiblioBusiness
 {
     public class BiblioManager
     {
+        public Books newBook = new Books();
+        public Authors newAuthor = new Authors();
         public static void Main(string[] args)
         {
             //Console.WriteLine("By Title------------------------------");
@@ -56,12 +58,12 @@ namespace BiblioBusiness
             }
         }
 
-        public void AddBook(string authorFirst, string authorLast, string bookTitle, string isbn10, string isbn13, string publisher, string publishDate, int numOfPages, string description, float review, bool read)
+        public void AddBook(string authorFirst, string authorLast, string bookTitle, string isbn10, string isbn13, string publisher, string publishDate, int numOfPages, string description, int review, bool read)
         {
             using (var db = new BiblioContext())
             {
-                int authorId = db.Authors.Last().AuthorId;
-                var authorQuery = db.Authors.Where(a => a.FirstName.ToUpper() == authorFirst.ToUpper() || a.LastName.ToUpper() == authorLast.ToUpper());
+                int authorId;
+                var authorQuery = db.Authors.Where(a => a.FirstName.Contains(authorFirst) && a.LastName.Contains(authorLast)).ToList();
                 if (authorQuery.Count() == 0)
                 {
                     if (authorFirst.ToUpper().Contains("DR."))
@@ -73,6 +75,7 @@ namespace BiblioBusiness
                             LastName = authorLast
                         };
                         db.Add(author);
+                        authorId = db.Authors.OrderByDescending(a => a.AuthorId).First().AuthorId;
                     }
                     else if (authorFirst.ToUpper().Contains("PROF."))
                     {
@@ -83,6 +86,7 @@ namespace BiblioBusiness
                             LastName = authorLast
                         };
                         db.Add(author);
+                        authorId = db.Authors.OrderByDescending(a => a.AuthorId).First().AuthorId;
                     }
                     else
                     {
@@ -95,12 +99,14 @@ namespace BiblioBusiness
                         db.Add(author);
                     }
                     db.SaveChanges();
+                    authorId = db.Authors.OrderByDescending(a => a.AuthorId).First().AuthorId;
                 }
+
                 else 
                 {
                     authorId = authorQuery.First().AuthorId;
                 }
-                var bookQuery = db.Books.Where(b => b.Isbn10 == isbn10 && b.Isbn13 == isbn13 && b.Title.ToUpper() == bookTitle.ToUpper());
+                var bookQuery = db.Books.Where(b => b.Isbn13 == isbn13);
                 if(bookQuery.Count() == 0)
                 {
                     Books book = new Books
@@ -117,11 +123,13 @@ namespace BiblioBusiness
                         AuthorId = authorId,
                         Review = review
                     };
+                    db.Add(book);
                 }
                 else
                 {
                     bookQuery.First().NumOfCopies++;
                 }
+                db.SaveChanges();
             }
         }
     }

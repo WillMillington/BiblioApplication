@@ -11,11 +11,11 @@ namespace Biblio.Models
         public string Isbn13 { get; set; }
         public string Publisher { get; set; }
         public string PublishedDate { get; set; }
-        public int? NumOfPages { get; set; }
+        public int NumOfPages { get; set; }
         public string Description { get; set; }
-        public double? Review { get; set; }
+        public int Review { get; set; }
         public int NumOfCopies { get; set; }
-        public bool? Read { get; set; }
+        public bool Read { get; set; }
         public int AuthorId { get; set; }
 
         public virtual Authors Author { get; set; }

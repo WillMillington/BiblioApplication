@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BiblioWPF"
         mc:Ignorable="d"
-        Title="AddBook" Height="400" Width="400" Background="#FF424242" Foreground="Cyan">
+        ResizeMode="NoResize"
+        Title="AddBook" Height="420" Width="420" Background="#FF424242" Foreground="Cyan" FontFamily="Nirmala UI Semilight">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -23,8 +24,36 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="5" Grid.RowSpan="4" Grid.ColumnSpan="2" Margin="10" BorderThickness="1" BorderBrush="Black" Background="#FFA4A4A4" />
-        <TextBlock Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Top" Text="Book Title" FontFamily="Nirama UI SemiLight" FontSize="15"/>
-        <TextBox  Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Bottom" Text="Book Title" FontFamily="Nirama UI SemiLight" FontSize="15" BorderThickness="1" BorderBrush="Black" Background="#FFA4A4A4"/>
+
+        <!--Text box headings-->
+        <TextBlock Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Top" Text="Book Title" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5" Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Height="20" VerticalAlignment="Top" Text="Author" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5" Margin="10,3,0,3"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="First Name" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5" Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="Last Name" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="ISBN-10" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5" Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="ISBN-13" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="Publisher" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5" Margin="10,0,0,0"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Left" VerticalAlignment="Top" Text="No. of Pages" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,0,0,5" Margin="10,0,0,10"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Height="20" Width="95" HorizontalAlignment="Right" VerticalAlignment="Bottom" Text="Year Published" FontFamily="Nirmala UI SemiLight" FontSize="12" Padding="0,5"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Text="Description" FontFamily="Nirama UI SemiLight" FontSize="12" Margin="10,5,0,0"/>
+        <!--Entry Text boxes-->
+        <TextBox x:Name="BookTitle" Grid.Row="0" Grid.Column="0" Height="19" VerticalAlignment="Bottom" Text="" FontFamily="Nirama UI SemiLight" FontSize="12" Margin="10,0,10,0" Background="#FFA4A4A4" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="AuthorFirst" Grid.Row="2" Grid.Column="0" Height="19" Width="85" HorizontalAlignment="Left" VerticalAlignment="Top" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="10,0,0,0" Background="#FFA4A4A4" Padding="0,0,10,0" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="AuthorLast" Grid.Row="2" Grid.Column="0" Height="19" Width="85" HorizontalAlignment="Right" VerticalAlignment="Top" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="0,0,10,0" Background="#FFA4A4A4" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="ISBN10" Grid.Row="3" Grid.Column="0" MaxLength="10" Height="19" Width="85" HorizontalAlignment="Left" VerticalAlignment="Top" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="10,0,0,0" Background="#FFA4A4A4" Padding="0,0,10,0" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="ISBN13" Grid.Row="3" Grid.Column="0" MaxLength="13" Height="19" Width="85" HorizontalAlignment="Right" VerticalAlignment="Top" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="0,0,10,0" Background="#FFA4A4A4" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="Publisher" Grid.Row="4" Grid.Column="0" Height="19" Width="85" HorizontalAlignment="Left" VerticalAlignment="Top" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="10,0,0,0" Background="#FFA4A4A4" Padding="0,0,10,0" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="PublishDate" Grid.Row="4" Grid.Column="0" Height="19" Width="85" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Right" VerticalAlignment="Top" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="0,0,10,0" Background="#FFA4A4A4" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="Description" Grid.Row="6" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="10,20,10,10" Background="#FFA4A4A4" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="NumOfPages" Grid.Row="5" Grid.Column="0" Height="19" Width="85" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" VerticalAlignment="Bottom" Text="" FontFamily="Nirmala UI SemiLight" FontSize="12" Background="#FFA4A4A4" Margin="10,0,0,5" BorderBrush="{x:Null}"/>
+        <!--Other operations-->
+        <CheckBox x:Name="Read" Grid.Column="1" Grid.Row="4" Content="Have you read this book?" FontFamily="Nirmala UI SemiLight" FontSize="12" Foreground="#FF0CFCFC" Margin="10,4,0,0" Background="#FFA4A4A4" BorderBrush="{x:Null}" Checked="Read_Input"/>
+        <TextBox x:Name="Review" Grid.Row="5" Grid.Column="1" Height="15" Width="20" HorizontalAlignment="Center" VerticalAlignment="Top" MaxLength="1" Text="" FontFamily="Nirmala UI Semilight" FontSize="12" PreviewTextInput="NumberValidationTextBox" BorderBrush="{x:Null}" Background="#FFA4A4A4" Foreground="Black" Margin="0,2,45,0"/>
+        <TextBlock x:Name="ReviewScale" Grid.Row="5" Grid.Column="1" Height="19" Width="25" HorizontalAlignment="Center" VerticalAlignment="Top" Text="Stars" FontFamily="Nirmala UI Semilight" FontSize="12" PreviewTextInput="NumberValidationTextBox" Margin="4,0,0,0" Foreground="#FF0CFCFC"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Height="20" Width="58" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Star Rating" FontFamily="Nirmala UI SemiLight" FontSize="12" Margin="10,40,0,0" Grid.RowSpan="2"/>
+        <!--Operation buttons-->
+        <Button Grid.Row="9" Grid.Column="0" Width="80" Margin="10,5" BorderBrush="{x:Null}" HorizontalAlignment="Left" Content="Cancel" FontFamily="Nirmala UI SemiLight" FontSize="12" Foreground="#FF0CFCFC" Background="Black" Click="Button_Click" />
+        <Button Grid.Row="9" Grid.Column="1" Width="80" Margin="10,5" BorderBrush="{x:Null}" HorizontalAlignment="Right" Content="+ Add" FontFamily="Nirmala UI SemiLight" FontSize="12" Foreground="#FF0CFCFC" Background="Black" Click="Add_Button_Click"/>
     </Grid>
 </Window>
