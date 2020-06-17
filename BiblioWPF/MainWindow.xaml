@@ -26,6 +26,24 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Column="0" Grid.ColumnSpan="6" Fill="#FF272626"/>
         <TextBlock Grid.Column="1" Grid.ColumnSpan="4" Text="Bibliocentric" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Nirmala UI Semilight" FontSize="50" />
-        <Button Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" Content="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Normal" />
+        <Button Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" Content="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" />
+        <Button Grid.Column="6" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" FontFamily="Nirmala UI Semilight" FontSize="24" Content="+ Add Book" Click="Button_Click"/>
+        <ItemsControl x:Name="BookBox" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="6">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Title}"/>
+                            <TextBlock Text="{Binding Author}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </Window>

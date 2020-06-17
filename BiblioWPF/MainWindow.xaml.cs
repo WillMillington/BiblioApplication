@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BiblioBusiness;
 
 namespace BiblioWPF
 {
@@ -20,9 +21,22 @@ namespace BiblioWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BiblioManager _biblioManager = new BiblioManager();
         public MainWindow()
         {
             InitializeComponent();
+            PopulateItemsControl();
+        }
+
+        public void PopulateItemsControl()
+        {
+            BookBox.ItemsSource = _biblioManager.GetAllBooksByTitle();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddBook addBookWindow = new AddBook();
+            addBookWindow.Show();
         }
     }
 }
