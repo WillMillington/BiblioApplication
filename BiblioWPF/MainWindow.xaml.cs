@@ -26,24 +26,28 @@ namespace BiblioWPF
         public MainWindow()
         {
             InitializeComponent();
-            PopulateItemsControl();
         }
 
         public void PopulateItemsControl()
         {
-            BookBox.ItemsSource = _biblioManager.GetAllBooksByAdded();
+            BookBox.ItemsSource = _biblioManager.GetAllBooksByTitle();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddBook addBookWindow = new AddBook();
-            addBookWindow.DataChanged += addBookWindow_DataChanged;
             addBookWindow.Show();
         }
-        private void addBookWindow_DataChanged(object sender, EventArgs e)
+
+        private void PopulateItemsControlBox(object sender, EventArgs e)
         {
-            System.Windows.MessageBox.Show("Book has been added", "Parent");
-            BookBox.;
+            PopulateItemsControl();
+        }
+
+        private void BookPage(object sender, MouseButtonEventArgs e)
+        {
+            BookPage bookPage = new BookPage();
+            bookPage.
         }
     }
 }

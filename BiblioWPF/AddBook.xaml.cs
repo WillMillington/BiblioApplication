@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using BiblioBusiness;
+using System.Net;
 
 namespace BiblioWPF
 {
@@ -21,8 +22,6 @@ namespace BiblioWPF
     {
         bool haveRead = false;
         BiblioManager _biblioManager = new BiblioManager();
-        public delegate void DataChangedEventHandler(object sender, EventArgs e);
-        public event DataChangedEventHandler DataChanged;
         public AddBook()
         {
             InitializeComponent();
@@ -35,23 +34,50 @@ namespace BiblioWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            var result = MessageBox.Show("All data in this form will be lost. Are you sure you want to leave this page?","Bibliocentric",MessageBoxButton.YesNo);
+            switch(result)
+            {
+                case MessageBoxResult.Yes:
+                    this.Close();
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+            
         }
 
         private void Read_Input(object sender, RoutedEventArgs e)
         {
-            bool haveRead = true;
+           haveRead = true;
         }
+
         private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
-            _biblioManager.AddBook(AuthorFirst.Text, AuthorLast.Text, BookTitle.Text, ISBN10.Text, ISBN13.Text, Publisher.Text, PublishDate.Text, int.Parse(NumOfPages.Text), Description.Text, int.Parse(Review.Text), haveRead);
-            DataChangedEventHandler handler = DataChanged;
+            string I10 = (string.IsNullOrEmpty(ISBN10.Text))? null : ISBN10.Text ;
+            string I13 = (string.IsNullOrEmpty(ISBN13.Text)) ? null : ISBN13.Text;
+            string Pub = (string.IsNullOrEmpty(Publisher.Text)) ? null : Publisher.Text;
+            string PubDate = (string.IsNullOrEmpty(PublishDate.Text)) ? null : PublishDate.Text;
+            int Pages = (string.IsNullOrEmpty(NumOfPages.Text)) ? 0 : int.Parse(NumOfPages.Text);
+            string Des = (string.IsNullOrEmpty(Description.Text)) ? null : Description.Text;
+            int Rating = (string.IsNullOrEmpty(Review.Text) || int.Parse(Review.Text) > 5 || int.Parse(Review.Text) < 0) ? 0 : int.Parse(Review.Text);
 
-            if (handler != null)
+
+
+            if (string.IsNullOrEmpty(BookTitle.Text) || string.IsNullOrEmpty(AuthorFirst.Text) || string.IsNullOrEmpty(AuthorLast.Text))
             {
-                handler(this, new EventArgs());
+                System.Windows.MessageBox.Show("Please Check all required fields are filled in.");
             }
-            this.Close();
+            else
+            {
+                _biblioManager.AddBook(AuthorFirst.Text, AuthorLast.Text, BookTitle.Text, I10, I13, Pub, PubDate, Pages, Des, Rating, haveRead);
+                //Window window = MainWindow.GetWindow(MainWindow);
+                //var mainWindow = (MainWindow)window;
+                //mainWindow.PopulateItemsControl();
+                MessageBox.Show("Book Added");
+                this.Close();
+            }
         }
     }
 }

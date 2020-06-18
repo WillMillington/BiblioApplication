@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BiblioWPF"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800" Background="#FF424242" Foreground="Cyan">
+        Title="" Height="450" Width="800" Background="#FF424242" Foreground="Cyan" Activated="PopulateItemsControlBox">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,7 +28,7 @@
         <TextBlock Grid.Column="1" Grid.ColumnSpan="4" Text="Bibliocentric" TextAlignment="Center" VerticalAlignment="Center" FontFamily="Nirmala UI Semilight" FontSize="50" />
         <Button Grid.Column="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" Content="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" />
         <Button Grid.Column="6" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" FontFamily="Nirmala UI Semilight" FontSize="24" Content="+ Add Book" Click="Button_Click"/>
-        <ItemsControl x:Name="BookBox" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="6">
+        <ItemsControl x:Name="BookBox" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="6" MouseDoubleClick="BookPage">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -45,5 +45,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
+        <Frame x:Name="Frame" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="5" />
     </Grid>
 </Window>
