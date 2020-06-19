@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BiblioWPF"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800" Background="#FF424242" Foreground="Cyan" Activated="PopulateItemsSource">
+        Title="" Height="450" Width="820" Background="#FF424242" Foreground="Cyan" Activated="PopulateItemsSource">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
@@ -18,35 +18,34 @@
         <ListBox x:Name="BookBox" Background="{x:Null}" Foreground="#FF0CFCFC" Grid.Row="1" MouseDoubleClick="BookPage" BorderBrush="{x:Null}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel/>
+                    <UniformGrid Columns="3"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Width="320"  Background="#4CFFFFFF">
+                    <WrapPanel>
+                    <Grid Width="250"  Background="Black">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2"/>
-                            <ColumnDefinition Width="320"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="240"/>
                         </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="40"/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Grid  Margin="0,0,12,0" Background="{x:Null}" HorizontalAlignment="Center">
-                            <TextBlock Text="{Binding Id}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="Black"/>
-                        </Grid>
-                        <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Title}" FontSize="16" VerticalAlignment="Center" TextWrapping="Wrap"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Author}" TextWrapping="Wrap"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="40"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Title}" FontSize="14" VerticalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Author}" FontSize="10" Foreground="AntiqueWhite" TextWrapping="Wrap"/>
                     </Grid>
+                    </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <ListBox.ItemContainerStyle>
+            <!--<ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Padding" Value="0"/>
                     <Setter Property="Margin" Value="6"/>
                 </Style>
-            </ListBox.ItemContainerStyle>
+            </ListBox.ItemContainerStyle>-->
         </ListBox>
         <Frame x:Name="Frame" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0" Grid.RowSpan="7" NavigationUIVisibility="Hidden" />
     </Grid>

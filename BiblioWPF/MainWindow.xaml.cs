@@ -26,6 +26,7 @@ namespace BiblioWPF
         public MainWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public void PopulateItems()

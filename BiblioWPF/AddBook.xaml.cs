@@ -25,6 +25,7 @@ namespace BiblioWPF
         public AddBook()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {

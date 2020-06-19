@@ -23,6 +23,7 @@ namespace BiblioWPF
         {
             InitializeComponent();
             _bibMan.SetSelectedBook(selectedBook);
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Message.Text = $"This book will be removed from the library.{Environment.NewLine} Do you want to delete '{_bibMan.SelectedBook.Title}'?";
         }
 

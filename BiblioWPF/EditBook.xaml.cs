@@ -25,6 +25,7 @@ namespace BiblioWPF
         public EditBook(object selectedBook)
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             _biblioManager.SetSelectedBook(selectedBook);
             PopulateFields();
         }

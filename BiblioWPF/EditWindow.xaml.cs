@@ -22,6 +22,7 @@ namespace BiblioWPF
         public EditWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Message.Text = $"This book has been updated in the library.";
         }
 
