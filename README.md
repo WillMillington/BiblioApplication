@@ -1,8 +1,8 @@
 # Bibliocentric Application
 
-From Monday 16th June to Monday 23rd June 2020 I plan to create an application that uses a backend database to store collections of books, a frontend GUI to view and edit the entries and a middle-manager to allow GUI to database interaction.
+From Monday 16th June to Monday 23rd June 2020 I plan to create an application that uses a backend database to store collections of books, a frontend GUI to view and edit the entries and a middle-manager to allow GUI to database interaction. 	
 
-The Application is called Bibliocentric, from the Greek Biblio (meaning book) and kentrikos (meaning at the centre)
+The Application is called Bibliocentric, from the Greek &#946;&#953;&#946;&#955;&#943;&#959;&#957; (Biblio: meaning book) and &#954;&#949;&#957;&#964;&#961;&#953;&#954;&#972;&#962; (kentrikos: meaning at the centre)
 
 #### Project Goal:
 
