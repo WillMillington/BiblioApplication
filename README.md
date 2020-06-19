@@ -20,7 +20,8 @@ The Application is called Bibliocentric, from the Greek &#946;&#953;&#946;&#955;
 | Sprint Number | Date/Time Started | Date/Time Completed | Notes |
 |:---------------:|:--------------:|:----------------:|:-------:|
 |1| 15/06/2020 16:00 | 16/06/2020 16:48 | Project started smoothly. One issue with the Scaffold function but was resolved.|
-|2| 16/06/2020 16:55 | 18/06/2020 | N/A|
+|2| 16/06/2020 16:55 | 18/06/2020 08:43 | Issues regarding Adding method set the project back.|
+|3| 18/06/2020 11:00 | 19/06/2020 12:40 | Major problems with display box, had to restart the UI process. Book page, edit, delete added.|
 
 Sprint 1
 -
@@ -59,23 +60,55 @@ Create a new WPF with an initial GUI that lists books, in a chosen order and int
 
 Project Cards:
 - Create a User Interface
-- Add, Edit, Remove operations
-- Detailed Book page
+- Add operation
 
 #### Retrospective
 ##### Start
+- Committing more regularly 
+
 ##### Continue
-
-
+- Working hard, only resting when the work is complete
 
 ##### Stop
-
+- Overcomplicating simple processes
 
 #### Screenshots
 
 Start of Sprint 2 Project board
 ![BiblioCentric](./ProjectBoardScreenshots/02Start.png)
 End of Sprint 2 Project board
+![BiblioCentric](./ProjectBoardScreenshots/02End.png)
+
+***
+
+Sprint 3
+-
+Create a detailed book page that displays a chosen book's full details.
+Create a working edit button and delete button.
+Finish working on all crud operations.
+Add a count to see the number of items in the library.
+
+Project Cards:
+- Detailed Book Page
+- Edit, Remove operations
+- Extra Functionality
+
+#### Retrospective
+##### Start
+- Committing more regularly!!!!!!!! 
+
+##### Continue
+- Thinking about user first and incorporating that into the project
+
+##### Stop
+- Waiting to test UI functionality after it is set-up (It will break everything)
+
+#### Screenshots
+
+Start of Sprint 3 Project board
+![BiblioCentric](./ProjectBoardScreenshots/03Start.png)
+End of Sprint 3 Project board
+![BiblioCentric](./ProjectBoardScreenshots/03End.png)
 
 ***
 

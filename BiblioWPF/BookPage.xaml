@@ -45,5 +45,6 @@
         </ScrollViewer>
         <Button Grid.Column="6" Grid.Row="6" Margin="10" Content="Edit Book" Background="Black" Foreground="Cyan" FontSize="18" Click="Edit_Click"/>
         <Button Grid.Column="0" Grid.Row="6" Margin="10" Content="Delete Book" Background="Black" Foreground="Cyan" FontSize="18" Click="Delete_Click"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="4" TextAlignment="Center" Text="To return to the main library please click the book icon." VerticalAlignment="Center" FontSize="14"/>
     </Grid>
 </Page>
