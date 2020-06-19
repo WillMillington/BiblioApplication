@@ -12,6 +12,7 @@ namespace BiblioBusiness
     {
         public Books newBook = new Books();
         public Authors newAuthor = new Authors();
+        public Books SelectedBook { get; set; }
         public static void Main(string[] args)
         {
             //Console.WriteLine("By Title------------------------------");
@@ -106,7 +107,7 @@ namespace BiblioBusiness
                 {
                     authorId = authorQuery.First().AuthorId;
                 }
-                var bookQuery = db.Books.Where(b => b.Isbn13 == isbn13);
+                var bookQuery = db.Books.Where(b => b.Title == bookTitle).ToList();
                 if(bookQuery.Count() == 0)
                 {
                     Books book = new Books
@@ -132,5 +133,50 @@ namespace BiblioBusiness
                 db.SaveChanges();
             }
         }
+        public Books SetSelectedBook(object selectedItem)
+        {
+            SelectedBook = (Books)selectedItem;
+            return SelectedBook;
+        }
+
+        public void EditBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
+        {
+            using (var db = new BiblioContext())
+            {
+                var authorQuery = db.Authors.Where(a => a.AuthorId == SelectedBook.AuthorId);
+                if (authorQuery.Count() != 0)
+                {
+                    var author = authorQuery.First();
+                    author.FirstName = authorFirst;
+                    author.LastName = authorLast;
+                }
+                db.SaveChanges();
+                var bookQuery = db.Books.Where(b => b.BookId == SelectedBook.BookId);
+                if (bookQuery.Count() != 0)
+                {
+                    var book = bookQuery.First();
+                    book.Title = bookTitle;
+                    book.Isbn10 = isbn10;
+                    book.Isbn13 = isbn13;
+                    book.Publisher = publisher;
+                    book.PublishedDate = publishDate;
+                    book.NumOfPages = numOfPages;
+                    book.Description = description;
+                    book.Read = read;
+                    book.Review = review;
+                }
+                db.SaveChanges();
+            }
+        }
+        public void DeleteBook(Books selectedBook)
+        {
+            using (var db = new BiblioContext())
+            {
+                var bookQuery = db.Books.Where(b => b.BookId == selectedBook.BookId).ToList().First();
+                db.Remove(bookQuery);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

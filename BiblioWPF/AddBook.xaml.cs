@@ -39,8 +39,6 @@ namespace BiblioWPF
             {
                 case MessageBoxResult.Yes:
                     this.Close();
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
                     break;
                 case MessageBoxResult.No:
                     break;
@@ -67,7 +65,7 @@ namespace BiblioWPF
 
             if (string.IsNullOrEmpty(BookTitle.Text) || string.IsNullOrEmpty(AuthorFirst.Text) || string.IsNullOrEmpty(AuthorLast.Text))
             {
-                System.Windows.MessageBox.Show("Please Check all required fields are filled in.");
+                System.Windows.MessageBox.Show("Please check all required fields are filled in.");
             }
             else
             {

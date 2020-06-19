@@ -28,7 +28,7 @@ namespace BiblioWPF
             InitializeComponent();
         }
 
-        public void PopulateItemsControl()
+        public void PopulateItems()
         {
             BookBox.ItemsSource = _biblioManager.GetAllBooksByTitle();
         }
@@ -38,16 +38,15 @@ namespace BiblioWPF
             AddBook addBookWindow = new AddBook();
             addBookWindow.Show();
         }
-
-        private void PopulateItemsControlBox(object sender, EventArgs e)
+        private void PopulateItemsSource(object sender, EventArgs e)
         {
-            PopulateItemsControl();
+            PopulateItems();
         }
 
         private void BookPage(object sender, MouseButtonEventArgs e)
         {
-            BookPage bookPage = new BookPage();
-            bookPage.
+            var result = BookBox.SelectedItem;
+            Frame.NavigationService.Navigate(new BookPage(result));
         }
     }
 }

@@ -1,0 +1,19 @@
+﻿<Window x:Class="BiblioWPF.EditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BiblioWPF"
+        mc:Ignorable="d"
+        Title="Edit" Height="150" Width="280">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="Message" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3"/>
+        <Button Height="20" Width="55" Content="Continue" Grid.ColumnSpan="4" FontSize="12" Margin="0,47,0,17" Click="Button_Click"/>
+    </Grid>
+</Window>
