@@ -5,14 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BiblioWPF"
         mc:Ignorable="d"
-        Title="" Height="450" Width="820" Background="#FF424242" Foreground="Cyan" Activated="PopulateItemsSource">
+        Title="" Height="450" Width="820" Background="#FF424242" Foreground="Cyan" Activated="PopulateItemsSource" KeyDown="EnterHit">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
             <RowDefinition Height="20*"/>
             <RowDefinition Height="310*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="Count" Grid.Row="1" Grid.Column="1" FontSize="12" Foreground="White" TextAlignment="Left" Margin="10,0,10,0"/>
+        <TextBox x:Name="SearchBar" Grid.Row="1" HorizontalAlignment="Center" Width="160" Background="Transparent" Foreground="Cyan" Text="Search" BorderThickness="0.2" IsReadOnly="False" GotFocus="RemoveSearch" Margin="0,0,0,0"/>
+        <Button x:Name="SearchButton" Grid.Row="1" HorizontalAlignment="Center" Width="20" Background="Transparent" Content="L" FontFamily="Webdings" Foreground="Cyan" FontStyle="Normal" Margin="180,0,0,0" BorderThickness="0.2" Click="Search_Click"/>
+        <TextBlock x:Name="Count" Grid.Row="1" HorizontalAlignment="Left" Width="200" FontSize="12" Foreground="White" TextAlignment="Left" Margin="10,0,10,0"/>
         <Menu x:Name="OrderMenu" Width="auto" Grid.Row="1" Background="Transparent" HorizontalAlignment="Right">
             <MenuItem x:Name="MenuTitle" Header="Order by:" Foreground="Cyan" Background="Transparent" HorizontalAlignment="Right">
                 <MenuItem Header="Book Title" Background="Transparent" Foreground="Black" Click="Book_Title_Clck"/>
@@ -22,7 +24,8 @@
         </Menu>
         <Rectangle Width="Auto" Height="Auto" Fill="#FF272626" Grid.Row="0"/>
         <TextBlock Text="Bibliocentric" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Nirmala UI Semilight" FontSize="50"/>
-        <TextBlock Grid.Column="0" Grid.Row="0" Margin="10,0" Background="{x:Null}" VerticalAlignment="Center" Foreground="#FF0CFCFC" Text="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <Button Grid.Column="0" Grid.Row="0" Height="72" Margin="10,0" Background="{x:Null}" VerticalAlignment="Center" Foreground="#FF0CFCFC" Content="&amp;" BorderBrush="{x:Null}" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" HorizontalAlignment="Left" Click="Home_Click"/>
+        <TextBlock x:Name="HomeTitle" Grid.Column="0" Grid.Row="0" Width="60" Height="20" Background="{x:Null}" VerticalAlignment="Bottom" Foreground="#FF0CFCFC" Text="Home" FontFamily="Nirmala UI SemiLight" FontSize="14" HorizontalAlignment="Left" TextAlignment="Center" Margin="10,0,0,0"/>
         <Button VerticalAlignment="Center" Margin="10,0" Grid.Row="0" HorizontalAlignment="Right"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" FontFamily="Nirmala UI Semilight" FontSize="24" Content="+ Add Book" Click="Button_Click"/>
         <ListBox x:Name="BookBox" Background="{x:Null}" Foreground="#FF0CFCFC" Grid.Row="2" MouseDoubleClick="BookPage" BorderBrush="{x:Null}">
             <ListBox.ItemsPanel>
@@ -33,29 +36,23 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <WrapPanel>
-                    <Grid Width="250"  Background="Black">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5"/>
-                            <ColumnDefinition Width="240"/>
-                        </Grid.ColumnDefinitions>
+                        <Grid Width="250"  Background="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5"/>
+                                <ColumnDefinition Width="240"/>
+                            </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
                                 <RowDefinition Height="40"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <TextBlock Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Title}" FontSize="14" VerticalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold"/>
-                        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Author}" FontSize="10" Foreground="AntiqueWhite" TextWrapping="Wrap"/>
-                    </Grid>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Text="{Binding Author}" FontSize="10" Foreground="AntiqueWhite" TextWrapping="Wrap"/>
+                        </Grid>
                     </WrapPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-            <!--<ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Padding" Value="0"/>
-                    <Setter Property="Margin" Value="6"/>
-                </Style>
-            </ListBox.ItemContainerStyle>-->
         </ListBox>
-        <Frame x:Name="Frame" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0" Grid.RowSpan="7" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="Frame" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0" Grid.RowSpan="7" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

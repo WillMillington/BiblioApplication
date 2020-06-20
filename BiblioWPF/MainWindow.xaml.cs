@@ -57,10 +57,12 @@ namespace BiblioWPF
         {
             AddBook addBookWindow = new AddBook();
             addBookWindow.Show();
+            SearchBar.Text = "Search";
         }
         private void PopulateItemsSource(object sender, EventArgs e)
         {
             PopulateItems(_orderChoice);
+            SearchBar.Text = "Search";
         }
 
         private void BookPage(object sender, MouseButtonEventArgs e)
@@ -73,18 +75,45 @@ namespace BiblioWPF
         {
             PopulateItems("Book");
             _orderChoice = "Book";
+            SearchBar.Text = "Search";
         }
 
         private void Author_Click(object sender, RoutedEventArgs e)
         {
             PopulateItems("Author");
             _orderChoice = "Author";
+            SearchBar.Text = "Search";
         }
 
         private void Added_Click(object sender, RoutedEventArgs e)
         {
             PopulateItems("Added");
             _orderChoice = "Added";
+            SearchBar.Text = "Search";
+        }
+
+        private void RemoveSearch(object sender, RoutedEventArgs e)
+        {
+            SearchBar.Text = "";
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            BookBox.ItemsSource =_biblioManager.SearchBooks(SearchBar.Text);
+        }
+
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            PopulateItems(_orderChoice);
+            SearchBar.Text = "Search";
+        }
+
+        private void EnterHit(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter && SearchBar.Text != "Search")
+            {
+                BookBox.ItemsSource = _biblioManager.SearchBooks(SearchBar.Text);
+            }
         }
     }
 }

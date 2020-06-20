@@ -37,5 +37,13 @@ namespace BiblioWPF
         {
             this.Close();
         }
+
+        private void EnterClick(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Button_Click(sender, e);
+            }
+        }
     }
 }

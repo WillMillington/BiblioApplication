@@ -28,7 +28,8 @@
         </Grid.RowDefinitions>
         <Rectangle Width="Auto" Grid.ColumnSpan="6" Fill="#FF272626" Grid.Row="0"/>
         <TextBlock Text="Bibliocentric" Grid.ColumnSpan="6" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Nirmala UI Semilight" FontSize="50"/>
-        <Button Grid.Column="0" Grid.Row="0" Margin="10,0" Background="{x:Null}"  Click="Book_Home_Click" VerticalAlignment="Center" Foreground="#FF0CFCFC" Content="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="{x:Null}" Padding="0,0,0,0"/>
+        <Button Grid.Column="0" Height="70" Grid.Row="0" Margin="10,0" Background="{x:Null}"  Click="Book_Home_Click" VerticalAlignment="Center" Foreground="#FF0CFCFC" Content="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="{x:Null}" Padding="0,0,0,0"/>
+        <TextBlock x:Name="HomeTitle" Grid.Column="0" Grid.Row="0" Width="60" Height="20" Background="{x:Null}" VerticalAlignment="Bottom" Foreground="#FF0CFCFC" Text="Home" FontFamily="Nirmala UI SemiLight" FontSize="14" HorizontalAlignment="Left" TextAlignment="Center" Margin="10,0,0,0"/>
         <TextBlock x:Name="SelectedBookTitle" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" FontSize="26" Margin="10,0,10,5"/>
         <TextBlock x:Name="SelectedBookAuthor" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" FontSize="20" Margin="10,10,10,0" Foreground="AntiqueWhite"/>
         <TextBlock x:Name="SelectedBoonPage" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" Margin="10,0,10,0" Foreground="White" />

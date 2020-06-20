@@ -66,6 +66,16 @@ namespace BiblioBusiness
             }
         }
 
+        public List<Books> SearchBooks(string input)
+        {
+            using (var db = new BiblioContext())
+            {
+                string correctInput = input.ToUpper().Trim();
+                List<Books> searchResult = db.Books.Include(a => a.Author).Where(b => b.Title.ToUpper().Contains(correctInput) || b.Author.LastName.Contains(correctInput) || b.Author.FirstName.Contains(correctInput) || b.Author.Title.Contains(correctInput)).OrderBy(b => b.Title).ToList();
+                return (searchResult.Count() == 0)? null : searchResult;
+            }
+        }
+
         public void AddBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
         {
             using (var db = new BiblioContext())
