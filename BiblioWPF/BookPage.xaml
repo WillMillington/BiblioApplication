@@ -32,7 +32,7 @@
         <TextBlock x:Name="SelectedBookTitle" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" FontSize="26" Margin="10,0,10,5"/>
         <TextBlock x:Name="SelectedBookAuthor" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" FontSize="20" Margin="10,10,10,0" Foreground="AntiqueWhite"/>
         <TextBlock x:Name="SelectedBoonPage" VerticalAlignment="Top" HorizontalAlignment="Left"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" Margin="10,0,10,0" Foreground="White" />
-        <TextBlock x:Name="SelectedBookPublish" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="18" Margin="10,10,10,0" Foreground="White"/>
+        <TextBlock x:Name="SelectedBookPublish" TextWrapping="Wrap" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="18" Margin="10,10,10,0" Foreground="White"/>
         <TextBlock x:Name="SelectedBookISBN10" VerticalAlignment="Bottom" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="3" FontSize="18" Margin="10,10,10,0" Foreground="White"/>
         <TextBlock x:Name="SelectedBookISBN13" VerticalAlignment="Top" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="3" FontSize="18" Margin="10,10,10,0" Foreground="White"/>
         <TextBlock x:Name="SelectedBookCopies" VerticalAlignment="Top" Grid.Column="3" Grid.ColumnSpan="5" Grid.Row="3" Grid.RowSpan="2" FontSize="16" Foreground="White" Margin="10,40,10,0"/>

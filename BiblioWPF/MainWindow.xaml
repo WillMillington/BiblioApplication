@@ -9,13 +9,22 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70*"/>
-            <RowDefinition Height="320*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="310*"/>
         </Grid.RowDefinitions>
+        <TextBlock x:Name="Count" Grid.Row="1" Grid.Column="1" FontSize="12" Foreground="White" TextAlignment="Left" Margin="10,0,10,0"/>
+        <Menu x:Name="OrderMenu" Width="auto" Grid.Row="1" Background="Transparent" HorizontalAlignment="Right">
+            <MenuItem x:Name="MenuTitle" Header="Order by:" Foreground="Cyan" Background="Transparent" HorizontalAlignment="Right">
+                <MenuItem Header="Book Title" Background="Transparent" Foreground="Black" Click="Book_Title_Clck"/>
+                <MenuItem Header="Author Surname"  Background="Transparent" Foreground="Black" Click="Author_Click"/>
+                <MenuItem Header="Date Added"  Background="Transparent" Foreground="Black" Click="Added_Click"/>
+            </MenuItem>
+        </Menu>
         <Rectangle Width="Auto" Height="Auto" Fill="#FF272626" Grid.Row="0"/>
         <TextBlock Text="Bibliocentric" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Nirmala UI Semilight" FontSize="50"/>
         <TextBlock Grid.Column="0" Grid.Row="0" Margin="10,0" Background="{x:Null}" VerticalAlignment="Center" Foreground="#FF0CFCFC" Text="&amp;" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" HorizontalAlignment="Left"/>
         <Button VerticalAlignment="Center" Margin="10,0" Grid.Row="0" HorizontalAlignment="Right"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" FontFamily="Nirmala UI Semilight" FontSize="24" Content="+ Add Book" Click="Button_Click"/>
-        <ListBox x:Name="BookBox" Background="{x:Null}" Foreground="#FF0CFCFC" Grid.Row="1" MouseDoubleClick="BookPage" BorderBrush="{x:Null}">
+        <ListBox x:Name="BookBox" Background="{x:Null}" Foreground="#FF0CFCFC" Grid.Row="2" MouseDoubleClick="BookPage" BorderBrush="{x:Null}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <UniformGrid Columns="3"/>

@@ -58,6 +58,13 @@ namespace BiblioBusiness
                 return db.Books.Include(a => a.Author).OrderBy(b => b.BookId).ToList();
             }
         }
+        public int GetCount()
+        {
+            using (var db = new BiblioContext())
+            {
+                return db.Books.ToList().Count();
+            }
+        }
 
         public void AddBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
         {
