@@ -17,7 +17,6 @@ namespace Biblio.Models
         public int NumOfCopies { get; set; }
         public bool Read { get; set; }
         public int AuthorId { get; set; }
-
         public virtual Authors Author { get; set; }
         public override string ToString()
         {

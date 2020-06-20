@@ -14,10 +14,7 @@ using BiblioBusiness;
 using System.Net;
 
 namespace BiblioWPF
-{
-    /// <summary>
-    /// Interaction logic for EditBook.xaml
-    /// </summary>
+{ 
     public partial class EditBook : Window
     {
         bool haveRead = false;
@@ -34,7 +31,6 @@ namespace BiblioWPF
             Regex regex = new Regex("[^0-9]+");
             e.Handled = (regex.IsMatch(e.Text));
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("All data in this form will be lost. Are you sure you want to leave this page?", "Bibliocentric", MessageBoxButton.YesNo);
@@ -48,7 +44,6 @@ namespace BiblioWPF
             }
 
         }
-
         private void Read_Input(object sender, RoutedEventArgs e)
         {
             haveRead = true;
@@ -68,7 +63,7 @@ namespace BiblioWPF
             Review.Text = (book.Review == 0) ? null : book.Review.ToString();
             Read.IsChecked = (book.Read == true) ? true : false;
         }
-            private void Edit_Button_Click(object sender, RoutedEventArgs e)
+        private void Edit_Button_Click(object sender, RoutedEventArgs e)
             {
                 string I10 = (string.IsNullOrEmpty(ISBN10.Text)) ? null : ISBN10.Text;
                 string I13 = (string.IsNullOrEmpty(ISBN13.Text)) ? null : ISBN13.Text;
@@ -92,7 +87,6 @@ namespace BiblioWPF
                     this.Close();
             }
         }
-
         private void EnterClick(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

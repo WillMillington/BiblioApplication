@@ -23,12 +23,6 @@ namespace TestsBiblio
         string Publisher = "Aardvark 'ardbacks";
         string Description = "Aardvark attractiveness alternates accorinding to austerity apparentley, as acknowledged by Aardvark 'ardbacks anyway.";
 
-        [SetUp]
-        public void SetUp()
-        {
-            
-        }
-
         [Test]
         public void AddBookTestNewBook()
         {
@@ -122,7 +116,6 @@ namespace TestsBiblio
                 db.SaveChanges();
             }
         }
-
         [Test]
         public void EditBookTest()
         {
@@ -178,7 +171,6 @@ namespace TestsBiblio
                 db.SaveChanges();
             }
         }
-
         [Test]
         public void DeleteBookTest()
         {

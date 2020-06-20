@@ -15,27 +15,7 @@ namespace BiblioBusiness
         public Books SelectedBook { get; set; }
         public static void Main(string[] args)
         {
-            //Console.WriteLine("By Title------------------------------");
-            //BibliBook = new Books
-            //var titleResult = GetAllBooksByTitle();
-            //foreach (var book in titleResult)
-            //{
-            //    Console.WriteLine($"{book} by {book.Author} published in {book.PublishedDate}");
-            //}
-            //Console.WriteLine("");
-            //Console.WriteLine("By Author------------------------------");
-            //var authorResult = GetAllBooksByAuthor();
-            //foreach (var book in authorResult)
-            //{
-            //    Console.WriteLine($"{book} by {book.Author} published in {book.PublishedDate}");
-            //}
-            //Console.WriteLine("");
-            //Console.WriteLine("By Added------------------------------");
-            //var addedResult = GetAllBooksByAdded();
-            //foreach (var book in addedResult)
-            //{
-            //    Console.WriteLine($"{book} by {book.Author} published in {book.PublishedDate}");
-            //}
+            
         }
         public List<Books> GetAllBooksByTitle()
         {
@@ -65,7 +45,6 @@ namespace BiblioBusiness
                 return db.Books.ToList().Count();
             }
         }
-
         public List<Books> SearchBooks(string input)
         {
             using (var db = new BiblioContext())
@@ -75,7 +54,6 @@ namespace BiblioBusiness
                 return (searchResult.Count() == 0)? null : searchResult;
             }
         }
-
         public void AddBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
         {
             using (var db = new BiblioContext())
@@ -155,7 +133,6 @@ namespace BiblioBusiness
             SelectedBook = (Books)selectedItem;
             return SelectedBook;
         }
-
         public void EditBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
         {
             using (var db = new BiblioContext())
@@ -194,6 +171,5 @@ namespace BiblioBusiness
                 db.SaveChanges();
             }
         }
-
     }
 }

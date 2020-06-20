@@ -16,9 +16,6 @@ using BiblioBusiness;
 
 namespace BiblioWPF
 {
-    /// <summary>
-    /// Interaction logic for BookPage.xaml
-    /// </summary>
     public partial class BookPage : Page
     {
         private BiblioManager _bibManager = new BiblioManager();
@@ -28,12 +25,10 @@ namespace BiblioWPF
             _bibManager.SetSelectedBook(selectedBook);
             PopulateFields();
         }
-
         private void Book_Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Source = null;
         }
-
         public void PopulateFields()
         {
             var book = _bibManager.SelectedBook;
@@ -87,14 +82,12 @@ namespace BiblioWPF
                 SelectedBookPublish.Text = $"Published by {book.Publisher} in {book.PublishedDate}";
             }
         }
-
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             EditBook editWindow = new EditBook(_bibManager.SelectedBook);
             this.NavigationService.Source = null;
             editWindow.Show();
         }
-
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             DeleteWindow deleteMessage = new DeleteWindow(_bibManager.SelectedBook);

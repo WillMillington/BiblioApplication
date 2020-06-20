@@ -9,12 +9,10 @@ namespace Biblio.Models
         {
             Books = new HashSet<Books>();
         }
-
         public int AuthorId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Title { get; set; }
-
         public virtual ICollection<Books> Books { get; set; }
         public override string ToString()
         {

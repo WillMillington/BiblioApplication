@@ -15,9 +15,6 @@ using System.Net;
 
 namespace BiblioWPF
 {
-    /// <summary>
-    /// Interaction logic for AddBook.xaml
-    /// </summary>
     public partial class AddBook : Window
     {
         bool haveRead = false;
@@ -32,7 +29,6 @@ namespace BiblioWPF
             Regex regex = new Regex("[^0-9]+");
             e.Handled = (regex.IsMatch(e.Text));
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("All data in this form will be lost. Are you sure you want to leave this page?","Bibliocentric",MessageBoxButton.YesNo);
@@ -46,12 +42,10 @@ namespace BiblioWPF
             }
             
         }
-
         private void Read_Input(object sender, RoutedEventArgs e)
         {
            haveRead = true;
         }
-
         private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             string I10 = (string.IsNullOrEmpty(ISBN10.Text))? null : ISBN10.Text ;
@@ -78,7 +72,6 @@ namespace BiblioWPF
                 this.Close();
             }
         }
-
         private void EnterClick(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)

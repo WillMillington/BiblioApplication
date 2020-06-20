@@ -13,24 +13,18 @@ using BiblioBusiness;
 
 namespace BiblioWPF
 {
-    /// <summary>
-    /// Interaction logic for DeleteWindow.xaml
-    /// </summary>
     public partial class EditWindow : Window
     {
-
         public EditWindow()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Message.Text = $"This book has been updated in the library.";
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
         private void EnterClick(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

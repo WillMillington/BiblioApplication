@@ -18,9 +18,6 @@ using BiblioBusiness;
 
 namespace BiblioWPF
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private string _orderChoice = "Book";
@@ -30,7 +27,6 @@ namespace BiblioWPF
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
-
         public void PopulateItems(string order)
         {
             Count.Text = $"Total library count: {_biblioManager.GetCount()}";
@@ -52,7 +48,6 @@ namespace BiblioWPF
             }
             
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddBook addBookWindow = new AddBook();
@@ -64,50 +59,42 @@ namespace BiblioWPF
             PopulateItems(_orderChoice);
             SearchBar.Text = "Search";
         }
-
         private void BookPage(object sender, MouseButtonEventArgs e)
         {
             var result = BookBox.SelectedItem;
             Frame.NavigationService.Navigate(new BookPage(result));
         }
-
         private void Book_Title_Clck(object sender, RoutedEventArgs e)
         {
             PopulateItems("Book");
             _orderChoice = "Book";
             SearchBar.Text = "Search";
         }
-
         private void Author_Click(object sender, RoutedEventArgs e)
         {
             PopulateItems("Author");
             _orderChoice = "Author";
             SearchBar.Text = "Search";
         }
-
         private void Added_Click(object sender, RoutedEventArgs e)
         {
             PopulateItems("Added");
             _orderChoice = "Added";
             SearchBar.Text = "Search";
         }
-
         private void RemoveSearch(object sender, RoutedEventArgs e)
         {
             SearchBar.Text = "";
         }
-
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             BookBox.ItemsSource =_biblioManager.SearchBooks(SearchBar.Text);
         }
-
         private void Home_Click(object sender, RoutedEventArgs e)
         {
             PopulateItems(_orderChoice);
             SearchBar.Text = "Search";
         }
-
         private void EnterHit(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter && SearchBar.Text != "Search")

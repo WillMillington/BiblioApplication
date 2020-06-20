@@ -9,15 +9,12 @@ namespace Biblio.Models
         public BiblioContext()
         {
         }
-
         public BiblioContext(DbContextOptions<BiblioContext> options)
             : base(options)
         {
         }
-
         public virtual DbSet<Authors> Authors { get; set; }
         public virtual DbSet<Books> Books { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -26,7 +23,6 @@ namespace Biblio.Models
                 optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Biblio;Integrated Security=True;ConnectRetryCount=0");
             }
         }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Authors>(entity =>
@@ -53,7 +49,6 @@ namespace Biblio.Models
 
             OnModelCreatingPartial(modelBuilder);
         }
-
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
