@@ -13,7 +13,11 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
+        <!--Message-->
         <TextBlock x:Name="Message" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3"/>
+        
+        <!--Yes/No buttons-->
         <Button Height="20" Width="50" Content="Yes" Grid.ColumnSpan="4" FontSize="12" Margin="23,47,107,17" Click="Button_Click"/>
         <Button Height="20" Width="50" Content="No" Grid.ColumnSpan="4" FontSize="12" Margin="107,47,23,17" Click="Button_Click_1"/>
     </Grid>

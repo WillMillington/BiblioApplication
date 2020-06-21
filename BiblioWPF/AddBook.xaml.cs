@@ -17,18 +17,25 @@ namespace BiblioWPF
 {
     public partial class AddBook : Window
     {
+        //Sets readbook as false by default 
         bool haveRead = false;
+
+        //Creates a new BiblioManager object to call the methods 
         BiblioManager _biblioManager = new BiblioManager();
         public AddBook()
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+
+        //Checks the input in the textbox is numbers and doesn't allow anything else
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = (regex.IsMatch(e.Text));
         }
+
+        //Cancels the input, closes window but shows error message first 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("All data in this form will be lost. Are you sure you want to leave this page?","Bibliocentric",MessageBoxButton.YesNo);
@@ -42,10 +49,14 @@ namespace BiblioWPF
             }
             
         }
+
+        //Reads if the checkbox is true or false
         private void Read_Input(object sender, RoutedEventArgs e)
         {
            haveRead = true;
         }
+
+        //Calls the add book method with the input read from the add book page
         private void Add_Button_Click(object sender, RoutedEventArgs e)
         {
             string I10 = (string.IsNullOrEmpty(ISBN10.Text))? null : ISBN10.Text ;
@@ -72,6 +83,8 @@ namespace BiblioWPF
                 this.Close();
             }
         }
+
+        //Allows enter button to be hit to add the book
         private void EnterClick(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)

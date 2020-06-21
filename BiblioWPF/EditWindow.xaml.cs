@@ -21,10 +21,14 @@ namespace BiblioWPF
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             Message.Text = $"This book has been updated in the library.";
         }
+
+        //Takes in click to close window
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
+        //Enter click to edit
         private void EnterClick(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

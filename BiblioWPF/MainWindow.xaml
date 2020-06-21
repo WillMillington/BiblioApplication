@@ -12,9 +12,15 @@
             <RowDefinition Height="20*"/>
             <RowDefinition Height="310*"/>
         </Grid.RowDefinitions>
+        
+        <!--Search bar and search button-->
         <TextBox x:Name="SearchBar" Grid.Row="1" HorizontalAlignment="Center" Width="160" Background="Transparent" Foreground="Cyan" Text="Search" BorderThickness="0.2" IsReadOnly="False" GotFocus="RemoveSearch" Margin="0,0,0,0"/>
         <Button x:Name="SearchButton" Grid.Row="1" HorizontalAlignment="Center" Width="20" Background="Transparent" Content="L" FontFamily="Webdings" Foreground="Cyan" FontStyle="Normal" Margin="180,0,0,0" BorderThickness="0.2" Click="Search_Click"/>
+        
+        <!--Library count-->
         <TextBlock x:Name="Count" Grid.Row="1" HorizontalAlignment="Left" Width="200" FontSize="12" Foreground="White" TextAlignment="Left" Margin="10,0,10,0"/>
+        
+        <!--Order menu-->
         <Menu x:Name="OrderMenu" Width="auto" Grid.Row="1" Background="Transparent" HorizontalAlignment="Right">
             <MenuItem x:Name="MenuTitle" Header="Order by:" Foreground="Cyan" Background="Transparent" HorizontalAlignment="Right">
                 <MenuItem Header="Book Title" Background="Transparent" Foreground="Black" Click="Book_Title_Clck"/>
@@ -22,11 +28,15 @@
                 <MenuItem Header="Date Added"  Background="Transparent" Foreground="Black" Click="Added_Click"/>
             </MenuItem>
         </Menu>
+        
+        <!--Sets up window header-->
         <Rectangle Width="Auto" Height="Auto" Fill="#FF272626" Grid.Row="0"/>
         <TextBlock Text="Bibliocentric" Grid.Row="0" TextAlignment="Center" VerticalAlignment="Top" FontFamily="Nirmala UI Semilight" FontSize="50"/>
         <Button Grid.Column="0" Grid.Row="0" Height="72" Margin="10,0" Background="{x:Null}" VerticalAlignment="Center" Foreground="#FF0CFCFC" Content="&amp;" BorderBrush="{x:Null}" FontFamily="Wingdings" FontSize="46" FontWeight="Bold" HorizontalAlignment="Left" Click="Home_Click"/>
         <TextBlock x:Name="HomeTitle" Grid.Column="0" Grid.Row="0" Width="60" Height="20" Background="{x:Null}" VerticalAlignment="Bottom" Foreground="#FF0CFCFC" Text="Home" FontFamily="Nirmala UI SemiLight" FontSize="14" HorizontalAlignment="Left" TextAlignment="Center" Margin="10,0,0,0"/>
         <Button VerticalAlignment="Center" Margin="10,0" Grid.Row="0" HorizontalAlignment="Right"  Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF0CFCFC" FontFamily="Nirmala UI Semilight" FontSize="24" Content="+ Add Book" Click="Button_Click"/>
+        
+        <!--List item box--> 
         <ListBox x:Name="BookBox" Background="{x:Null}" Foreground="#FF0CFCFC" Grid.Row="2" MouseDoubleClick="BookPage" BorderBrush="{x:Null}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -53,6 +63,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        
+        <!--Frame definition populated with BookPage when item is collected-->
         <Frame x:Name="Frame" Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0" Grid.RowSpan="7" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

@@ -18,17 +18,24 @@ namespace BiblioWPF
 {
     public partial class BookPage : Page
     {
+        //Creates a new BiblioManager object to call methods
         private BiblioManager _bibManager = new BiblioManager();
+        
+       //Creates a new page, sets the selected book to the selected item in the previous window, populates the information boxes
         public BookPage(object selectedBook)
         {
             InitializeComponent();
             _bibManager.SetSelectedBook(selectedBook);
             PopulateFields();
         }
+
+        //Closes the page and takes the user back to library
         private void Book_Home_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Source = null;
         }
+
+        //Method to fill all the information boxes with the right information, makes headings null if there is information missing
         public void PopulateFields()
         {
             var book = _bibManager.SelectedBook;
@@ -82,12 +89,16 @@ namespace BiblioWPF
                 SelectedBookPublish.Text = $"Published by {book.Publisher} in {book.PublishedDate}";
             }
         }
+
+        //Takes the user to a new edit page
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             EditBook editWindow = new EditBook(_bibManager.SelectedBook);
             this.NavigationService.Source = null;
             editWindow.Show();
         }
+
+        //Deletes the book, but shows delete message first to confirm
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             DeleteWindow deleteMessage = new DeleteWindow(_bibManager.SelectedBook);

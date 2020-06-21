@@ -17,6 +17,7 @@ namespace BiblioBusiness
         {
             
         }
+        //Method that lists all the books ordered alphabetically by the title.
         public List<Books> GetAllBooksByTitle()
         {
             using (var db = new BiblioContext())
@@ -24,6 +25,8 @@ namespace BiblioBusiness
                 return db.Books.Include(a => a.Author).OrderBy(b => b.Title).ToList();
             }
         }
+
+        //Method that lists all the books ordered alphabetically by the surname of the author and then by the title.
         public List<Books> GetAllBooksByAuthor()
         {
             using (var db = new BiblioContext())
@@ -31,6 +34,8 @@ namespace BiblioBusiness
                 return db.Books.Include(a => a.Author).OrderBy(a => a.Author.LastName).ThenBy(b => b.Title).ToList();
             }
         }
+
+        //Method that lists all the books ordered by when they were added to the database.
         public List<Books> GetAllBooksByAdded()
         {
             using (var db = new BiblioContext())
@@ -38,6 +43,8 @@ namespace BiblioBusiness
                 return db.Books.Include(a => a.Author).OrderBy(b => b.BookId).ToList();
             }
         }
+
+        //Method that returns a count of the number of books in the library.
         public int GetCount()
         {
             using (var db = new BiblioContext())
@@ -45,6 +52,8 @@ namespace BiblioBusiness
                 return db.Books.ToList().Count();
             }
         }
+
+        //Method that uses string.Contains() to search the book titles, author's name (and title) for the input of the search bar and returns the books.
         public List<Books> SearchBooks(string input)
         {
             using (var db = new BiblioContext())
@@ -54,6 +63,15 @@ namespace BiblioBusiness
                 return (searchResult.Count() == 0)? null : searchResult;
             }
         }
+
+        //Method that adds books to the database
+        //1)    Checks if the author is in the database
+        //2a)   If author is in then author Id is set to the inputted author
+        //2b)   If author isn't in then the author is added and author Id is set to the latest one in the database
+        //2b.1) If the firstname contains Dr. or Prof. then that is separated and added as author Title.
+        //3)    Checks if the book is in the database
+        //3a)   If book is in then nothing is added
+        //3b)   If book isnt then the book is added with inputted data
         public void AddBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
         {
             using (var db = new BiblioContext())
@@ -128,11 +146,17 @@ namespace BiblioBusiness
                 db.SaveChanges();
             }
         }
+        
+        //Method that takes in the selected item from the WPF layer and sets it as the variable selectedBook for use in methods.
         public Books SetSelectedBook(object selectedItem)
         {
             SelectedBook = (Books)selectedItem;
             return SelectedBook;
         }
+        
+        //Method that edits books in the database
+        //1) Finds the book and author entries in the database
+        //2) Updates the data with the inputs on the selected author and book
         public void EditBook(string authorFirst, string authorLast, string bookTitle, string isbn10 = null, string isbn13 = null, string publisher = null, string publishDate = null, int numOfPages = 0, string description = null, int review = 0, bool read = false)
         {
             using (var db = new BiblioContext())
@@ -162,6 +186,8 @@ namespace BiblioBusiness
                 db.SaveChanges();
             }
         }
+        
+        //Method that deletes the selected book
         public void DeleteBook(Books selectedBook)
         {
             using (var db = new BiblioContext())
