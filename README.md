@@ -24,6 +24,8 @@ The Application is called Bibliocentric, from the Greek &#946;&#953;&#946;&#955;
 |1| 15/06/2020 16:00 | 16/06/2020 16:48 | Project started smoothly. One issue with the Scaffold function but was resolved.|
 |2| 16/06/2020 16:55 | 18/06/2020 08:43 | Issues regarding Adding method set the project back.|
 |3| 18/06/2020 11:00 | 19/06/2020 12:40 | Major problems with display box, had to restart the UI process. Book page, edit, delete added.|
+|4| 19/06/2020 17:10 | 20/06/2020 21:20 | No real issues this time, closing project, application almost complete|
+|5| 21/06/2020 10:12 | 21/06/2020 20:43 | Finished |
 
 Sprint 1
 -
